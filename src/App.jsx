@@ -1,34 +1,35 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react'
+//import * as ReactDOM from 'react-dom/client'
+import 'bootstrap/dist/css/bootstrap.min.css';
+/* eslint-disable react/prop-types */
+
+
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Home from "./Components/Home"
+import Header from "./Components/Header"
+import Goals from "./Components/Goals"
+import Tasks from "./Components/Tasks"
+import Integrations from "./Components/Integrations"
+import Team from "./Components/Team"
+import Settings from "./Components/Settings"
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <React.StrictMode>
+      <BrowserRouter>
+        <Routes>
+          <Route exact path="/" element={<Header />}>
+            <Route index element={<Home />} />
+            <Route path="dashboard/goals" element={<Goals/>}/>
+            <Route path="dashboard/tasks" element={<Tasks/>}/>
+            <Route path="dashboard/integrations" element={<Integrations/>}/>
+            <Route path="dashboard/team" element={<Team/>}/>
+            <Route path="dashboard/settings" element={<Settings/>}/>
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </React.StrictMode>
   )
 }
 
