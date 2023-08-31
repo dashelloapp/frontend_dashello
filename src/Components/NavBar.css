@@ -30,3 +30,6 @@
 .margin{
   margin: 30px;
 }
+.offcanvas-backdrop.show {
+  opacity: .0;
+}

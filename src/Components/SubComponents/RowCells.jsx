@@ -1,4 +1,4 @@
-import { CardGroup, Card } from "react-bootstrap"
+import { Row, Col, Card } from "react-bootstrap"
 import {BsPlusCircle,BsArrowRightCircle,BsFillCreditCardFill,BsGraphUpArrow,BsChevronDoubleRight,BsWallet2} from "react-icons/bs"
 
 const RowCells = () => {
@@ -28,7 +28,7 @@ const RowCells = () => {
   var cardlist = []
   testdata.forEach((card, index) => {
     cardlist.push(
-      <Card>
+      <Card style={{margin:"10px"}}>
      <Card.Body>
      <Card.Title>{card.title}</Card.Title>
       <Card.Text style={{textAlign:"center"}}>{card.icon}</Card.Text>
@@ -38,8 +38,12 @@ const RowCells = () => {
   )});
 
   return(
-    <div style={{display:"flex"}}>{cardlist}
-        <BsPlusCircle style={{height:"30px", width:"30px",margin:"3px",color:"black"}}/>
+    <div style={{display:"flex", margin:"20px"}}>
+      <Row s={2} md={4} lg={5} className="g-4">
+      {cardlist}
+      <Card style={{margin:"10px"}}><BsPlusCircle style={{height:"30px", width:"30px",margin:"3px",color:"black"}}/></Card>
+      </Row>
+        
     </div>
   )
 }
