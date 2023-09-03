@@ -1,11 +1,11 @@
 import React from 'react';
-import { ListGroupItem } from 'react-bootstrap';
+import { ListGroupItem, Button } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card'
-import ListGroup from 'react-bootstrap/ListGroup'
-import Button from 'react-bootstrap/Button';
+import {BsCheckCircleFill} from "react-icons/bs"
+import "./../../index.css"
 const YourTasks = () => {
 
-  const tasks = ["Spring", "Summer", "Autumn", "Winter"];
+  const tasks = ["", "", "", ""];
 
   let tasklist = [];
 
@@ -13,18 +13,18 @@ const YourTasks = () => {
   //most of the time its better to map structs ie tasks.map((item)=>{<etc></etc>})
   tasks.forEach((season, index) => {
     tasklist.push(
-      <ListGroupItem>
-
-        <div>__________</div>
+      <ListGroupItem style={{display:"flex", border:"none",marginBottom:"15px"}} key={index}>
+        <BsCheckCircleFill style={{color:"lightgrey"}}/>
+        <div style={{ width:"100px", borderBottom:"1px solid lightgrey"}}>{season}</div>
       </ListGroupItem>);
   });
   return (
-    <Card style={{maxWidth:"150px"}}>
-      <Card.Header>Featured</Card.Header>
-      <ListGroup variant="flush" >
+    <Card style={{margin:"10px", alignItems:"center", padding:"0px"}}>
+      <Card.Body>
+        <h3 className="subtitle" style={{width:"120px"}}>Next Actions</h3>
         {tasklist}
-      </ListGroup>
-      <Button size="sm" >View All</Button>
+        <Button className="basicButton"> View All</Button>
+      </Card.Body> 
     </Card>
   );
 };

@@ -8,7 +8,7 @@ const ProgBar = (props) => {
     }
     return (
         <div>
-            {prin}
+
            <div>{props.percent}%</div>
             <ProgressBar now={props.percent} style={{width:"100px"}} />
         </div>
