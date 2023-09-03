@@ -6,10 +6,13 @@ import {PiDotsThreeCircleFill} from "react-icons/pi"
 const RowCellHeader= (props) =>{
 
   var imageList = []
-  props.images.forEach((image, index) => {
-    imageList.push(
-      <Image  src={image} height="25" style={{borderRadius:"50%", margin:"5px"}} />
-  )});
+  if (props.imageList != undefined){
+    props.images.forEach((image, index) => {
+      imageList.push(
+        <Image  src={image} height="25" style={{borderRadius:"50%", margin:"5px"}} />
+    )});
+  }
+  
   return(
     <div style={{width:"100%",marginTop:"15px"}}>
       <div style={{borderBottom: "solid 1px grey"}}/>
