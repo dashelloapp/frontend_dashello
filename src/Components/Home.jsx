@@ -5,6 +5,8 @@ import { Button } from "react-bootstrap";
 
 import { useState } from "react";
 import BasicModal from "./Modals/basicModal";
+import Sales from "./SubComponents/Sales";
+import Marketing from "./SubComponents/Marketing";
 const Home = () => {
   const [modalShow, setModalShow] = useState(false);
 
@@ -19,6 +21,10 @@ const Home = () => {
             images={["smilingWoman.jpg","smilingWoman.jpg","smilingWoman.jpg"]}
             />
             <RowCells/>
+            <hr />
+            <Sales/>
+            <hr />
+            <Marketing/>
 
             <Button onClick={()=>modalTest()}>Open Modal</Button>
             <BasicModal
