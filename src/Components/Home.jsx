@@ -7,6 +7,8 @@ import { useState } from "react";
 import BasicModal from "./Modals/basicModal";
 import Sales from "./SubComponents/Sales";
 import Marketing from "./SubComponents/Marketing";
+import SalesHeader from "./SubComponents/SalesHeader";
+import MarketingHeader from "./SubComponents/MarketingHeader";
 const Home = () => {
   const [modalShow, setModalShow] = useState(false);
 
@@ -22,8 +24,10 @@ const Home = () => {
             />
             <RowCells/>
             <hr />
+            <SalesHeader title={"Sales"} />
             <Sales/>
             <hr />
+            <MarketingHeader title={"Marketing"} />
             <Marketing/>
 
             <Button onClick={()=>modalTest()}>Open Modal</Button>
