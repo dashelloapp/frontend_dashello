@@ -5,35 +5,35 @@ const RowCells = () => {
 
   let testdata = [{
     title: "Overhead",
-    icon:<BsArrowRightCircle/>,
+    icon:<BsArrowRightCircle style={{margin: "10px", color:"#4285F4",width:"20px", height:"20px"}}/>,
     color:"#7BCC90",
     amount: 79941.08
   },{
     title: "Overhead",
-    icon:<BsFillCreditCardFill/>,
-    color:"#7BCC90",
+    icon:<BsFillCreditCardFill style={{margin: "10px",color:"#4285F4", width:"20px", height:"20px"}}/>,
+    color:"#F14668",
     amount: 79941.08
   },{
     title: "Overhead",
-    icon:<BsGraphUpArrow/>,
-    color:"#7BCC90",
+    icon:<BsGraphUpArrow style={{margin: "10px",color:"#4285F4",width:"20px", height:"20px"}}/>,
+    color:"#D2D2D2",
     amount: 79941.08
   },{
     title: "Overhead",
-    icon:<BsChevronDoubleRight/>,
-    color:"#7BCC90",
+    icon:<BsChevronDoubleRight style={{margin: "10px",color:"#4285F4",width:"20px", height:"20px"}}/>,
+    color:"#FFD047",
     amount: 79941.08
   }]
 
   var cardlist = []
   testdata.forEach((card, index) => {
     cardlist.push(
-      <Card style={{margin:"10px"}}>
-     <Card.Body>
-     <Card.Title>{card.title}</Card.Title>
-      <Card.Text style={{textAlign:"center"}}>{card.icon}</Card.Text>
-      <Card.Footer>{card.amount}</Card.Footer>
-      </Card.Body> 
+      <Card style={{margin:"10px", height:"125px", width:"125px", textAlign:"center", backgroundColor:`${card.color}`, borderRadius:"10px", border:"none", color:"#FFF"}}>
+      <div style={{margin:"auto"}}>
+        <div>{card.title}</div>
+        <div style={{margin:"auto",width:"40px", height:"40px", borderRadius:"20px", backgroundColor:"#FFF"}}>{card.icon}</div>
+        <div>${card.amount}</div>
+      </div>
     </Card>
   )});
 
@@ -41,7 +41,7 @@ const RowCells = () => {
     <div style={{display:"flex", margin:"20px"}}>
       <Row s={2} md={4} lg={5} className="g-4">
       {cardlist}
-      <Card style={{margin:"10px"}}><BsPlusCircle style={{height:"30px", width:"30px",margin:"3px",color:"black"}}/></Card>
+      <Card style={{margin:"10px", border:"none"}}><BsPlusCircle style={{height:"30px", width:"30px",margin:"3px",color:"black"}}/></Card>
       </Row>
         
     </div>
