@@ -2,13 +2,13 @@ import TopOptions from "./SubComponents/TopOptions";
 import RowCellHeader from "./SubComponents/RowCellHeader"
 import RowCells from "./SubComponents/RowCells";
 import { Button } from "react-bootstrap";
-
 import { useState } from "react";
 import BasicModal from "./Modals/basicModal";
 import Sales from "./SubComponents/Sales";
 import Marketing from "./SubComponents/Marketing";
 import SalesHeader from "./SubComponents/SalesHeader";
 import MarketingHeader from "./SubComponents/MarketingHeader";
+
 const Home = () => {
   const [modalShow, setModalShow] = useState(false);
 
@@ -23,10 +23,10 @@ const Home = () => {
             images={["smilingWoman.jpg","smilingWoman.jpg","smilingWoman.jpg"]}
             />
             <RowCells/>
-            <hr />
+            
             <SalesHeader title={"Sales"} />
             <Sales/>
-            <hr />
+            
             <MarketingHeader title={"Marketing"} />
             <Marketing/>
 

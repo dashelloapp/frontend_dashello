@@ -2,9 +2,9 @@
 
 const Team = () => {
 
-    return (
-        <div>
-            
+    return ( 
+        <div> 
+        Hello Peace
         </div>
     );
 };
