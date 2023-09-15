@@ -1,5 +1,6 @@
 import { Card, Row } from "react-bootstrap";
 import { BsPlusCircle, BsPerson, BsEnvelopeOpen, BsRepeat } from "react-icons/bs";
+//import Team from "../Team";
 
 const Sales = () => {
 
