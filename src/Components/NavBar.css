@@ -33,3 +33,21 @@
 .offcanvas-backdrop.show {
   opacity: .0;
 }
+.nav-link.active {
+  background-color: white;
+  border-radius: 20px;
+}
+.nav-link.active a {
+  color: #535bf2;
+}
+.nav-link{
+  padding:2px;
+  margin:1px 4px 1px 4px;
+  font-size: small;
+}
+
+ .icon{
+  width: 20px;
+  height: 20px;
+  margin-right: 3px;
+} 

@@ -1,4 +1,6 @@
-
+import { CardGroup } from "react-bootstrap";
+import RowCellHeader from "./SubComponents/RowCellHeader"
+import TeamTasks from "./SubComponents/TeamTasks"
 
 import { Row, Image,ListGroupItem, Card, Button } from "react-bootstrap"
 import { AiFillCheckCircle } from "react-icons/ai";
@@ -6,7 +8,6 @@ import "../index.css"
 import TopOptions from "./SubComponents/TopOptions";
 
 const Team = () => {
-
   return(
     <>
     <TopOptions/>

@@ -10,21 +10,19 @@ const GoalProgressComponent = () => {
      <div style={{display:"flex",justifyContent:"space-between"}}>
 
         <div style={{display:"flex",}}>
-        <Button style={{}}>X</Button>
+        <Button style={{borderRadius:"50%", height:"25px", width:"25px", padding:"auto"}}></Button>
 
-          <p>Increase Sales by {percent}</p>
+          <div style={{justifyContent:"space-between", borderBottom:"solid 1px grey"}}><b>Increase Sales by {percent}%</b><Button>Edit</Button></div>
         </div>
-        <Button>Edit</Button>
       </div>
 
 
-      <div style={{margin:"30px"}}>
-      <hr/>
+      <div >
 
-        <div>Progress - {percent}%</div>
+        <div style={{fontSize:"small", paddingLeft:"5px"}}>Progress - {percent}%</div>
           <div style={{display:"flex"}}>
-            <ProgressBar now={percent} style={{width:"350px"}} />
-            <p>Due: {dueDate}</p>
+            <ProgressBar variant="success" now={percent} style={{width:"250px",marginTop:"auto", marginBottom:"auto"}} />
+            <p style={{marginBottom:"auto", paddingLeft:"5px", fontSize:"small"}}>Due: {dueDate}</p>
           </div>
         </div>
       </div> 
