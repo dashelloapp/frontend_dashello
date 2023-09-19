@@ -15,7 +15,7 @@ const Home = () => {
     return (
         <div>
           <TopOptions/>
-          <RowCellHeader title={"CashFlow"}
+          <RowCellHeader title={"Teams"}
             images={["smilingWoman.jpg","smilingWoman.jpg","smilingWoman.jpg"]}
             />
             <RowCells/>

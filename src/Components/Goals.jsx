@@ -5,8 +5,6 @@ const Goals = () => {
 
     return (
         <div>
-           <TopOptions/>
-           
            <RowCellHeader title={"Company Goals"}
             />
             <GoalProgressComponent/>
