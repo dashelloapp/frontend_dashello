@@ -39,7 +39,7 @@ const  SignInUp = () => {
         setOrg(data.org)
         setFirst(data.first)
         setLast(data.last)
-        //console.log(org," ", firstName," ", lastName," ", ps," ",email," ", org)
+        console.log(org," ", firstName," ", lastName," ", ps," ",email," ", org)
         if (testSignUpData){
             createUser({org:org, first:firstName, last:lastName,email:email,password:ps}).then(() =>{
                 signInUser({email:email,password:ps}).then(() =>{

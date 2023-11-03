@@ -27,9 +27,79 @@ export const UserProvider = (props) => {
         }).join(''));
           return JSON.parse(jsonPayload);
       }
-
+/*{
+  "user": {
+    "email": "user2@example.com",
+    "password": "password",
+    "firstName": "John",
+    "lastName": "Doe",
+    "userType": "owner"
+  },
+  "organization": {
+    "organization": "My Organization",
+    "billing_address": {
+      "street": "123 Main St",
+      "city": "City",
+      "state": "State",
+      "zip": "12345"
+    },
+    "mailing_address": {
+      "street": "456 Elm St",
+      "city": "City",
+      "state": "State",
+      "zip": "67890"
+    },
+    "organizationType": "services"
+    "phone_number": "1111111111"
+     "card_information": {
+      "card_number": "1234 5678 9012 3456",
+      "expiration_date": "12/24",
+      "cvv": "123"
+    },
+    "membership_plan": {
+      "plan_name": "Gold",
+      "price": 50.00
+    }
+  }
+}
+ */
     function createUser(org, first, last, email, password) {       
-        let user = { email:email, password:password, firstName:first, lastName:last, organization:org };
+        let user = {
+            "user": {
+              "email": email,
+              "password": password,
+              "firstName": first,
+              "lastName": last,
+              "userType": "owner"
+            },
+            "organization": {
+              "organization": org,
+              "billing_address": {
+                "street": "123 Main St",
+                "city": "City",
+                "state": "State",
+                "zip": "12345"
+              },
+              "mailing_address": {
+                "street": "456 Elm St",
+                "city": "City",
+                "state": "State",
+                "zip": "67890"
+              },
+              "organizationType": "services",
+              "phone_number": "1111111111",
+               "card_information": {
+                "card_number": "1234 5678 9012 3456",
+                "expiration_date": "12/24",
+                "cvv": "123"
+              },
+              "membership_plan": {
+                "plan_name": "Gold",
+                "price": 50.00
+              }
+            }
+          }
+        //{ email:email, password:password, firstName:first, lastName:last, organization:org };
         console.log(email, password)
         return axios.post(baseUrl, user)
             .then(response => {

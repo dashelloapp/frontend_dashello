@@ -19,14 +19,14 @@ import UserContext from './Contexts/UserContext';
 
 
 function App() {
-  let { isSignedIn } = useContext(UserContext);
+  //let { isSignedIn } = useContext(UserContext);
 
   return (
     <React.StrictMode>
      <UserProvider>
      <BrowserRouter>
         <Routes>
-          {isSignedIn ? <Route exact path="/" element={<Header />}>
+          {false ? <Route exact path="/" element={<Header />}>
               <Route index element={<Home />} />
               <Route path="dashboard/goals" element={<Goals/>}/>
               <Route path="dashboard/tasks" element={<Tasks/>}/>
