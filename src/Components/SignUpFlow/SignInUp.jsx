@@ -7,6 +7,7 @@ import LazyWrapper from "./LazyWrapper"
 import SetUp from "./SetUp";
 import { Link, useNavigate } from 'react-router-dom';
 import UserContext from "../../Contexts/UserContext";
+import TwoFA from "./TwoFA";
 
 const  SignInUp = () => {
 
@@ -16,17 +17,11 @@ const  SignInUp = () => {
     const [firstName, setFirst] = useState('')
     const [lastName, setLast] = useState('')
     const [showSetUp, setCard] = useState(false) 
-
+    const [show2FA, setShow2FA] = useState(false) 
+    const [qr, setQR] = useState('')
 
     let { signInUser, createUser } = useContext(UserContext);
     let navigate = useNavigate();
-
-    //notes
-    /*
-    how to only show onboarding info when signed out vs when signed in
-    right now just a bool to do the gramming but how do i do it?
-    */
-
 
     function handleSignUpData(data){
         //take props from sign up card
@@ -41,10 +36,8 @@ const  SignInUp = () => {
         setLast(data.last)
         console.log(org," ", firstName," ", lastName," ", ps," ",email," ", org)
         if (testSignUpData){
-            createUser({org:org, first:firstName, last:lastName,email:email,password:ps}).then(() =>{
-                signInUser({email:email,password:ps}).then(() =>{
-                    navigate('/')
-                })
+            createUser({"organization":org, "firstName":firstName, "lastName":lastName,"email":email,"password":ps}).then((response) =>{
+                console.log(response)
             }).catch(error =>{
                 console.log(error)
                 window.alert("Failed Registration: error creating user")
@@ -63,15 +56,9 @@ const  SignInUp = () => {
 
     }
     function handleSignIn(data){
-        
-        //take props from signin
-        //make sign in request
-        //if successful
-        //set sign in to true in app?
-            //see how i do this in dream team
-        //if failure show toast saying sign in failed
 
-        signInUser({email: data.email,password: data.password}).then(() =>{
+        signInUser({email: data.email,password: data.ps}).then((response) =>{
+            console.log
             navigate('/')
         }).catch(error =>{
             console.log(error)
@@ -99,7 +86,8 @@ const  SignInUp = () => {
                         <SignInCard handleSignIn={handleSignIn} />
                     </Tab>
                     <Tab eventKey="SignUp" title="Sign Up">
-                        {showSetUp ? <SetUp handleSetUp={handleSetUp} /> : <SignUpCard handleSignUpData={handleSignUpData}/>}
+                        {showSetUp ? show2FA ? <TwoFA qr={qr}/> : <SetUp handleSetUp={handleSetUp} /> 
+                        : <SignUpCard handleSignUpData={handleSignUpData}/>}
                     </Tab>
                 </Tabs>
                 </Card>

@@ -1,5 +1,6 @@
 import { Container,Form, ListGroup, ListGroupItem, Nav, Navbar, Image, Offcanvas,Button, Card} from "react-bootstrap";
 import { useState } from "react";
+import { GoogleLogin } from '@react-oauth/google';
 
 const SignInCard = (props) =>{
   
@@ -11,6 +12,10 @@ const SignInCard = (props) =>{
     console.log(password, " ", email)
     props.handleSignIn({email:email,ps:password})
   }
+  const responseGoogle = (response) => {
+    console.log(response);
+    // Send response.tokenId to the backend
+  };
   return(<div>
 
   <Card.Header style={{backgroundColor:"white", border:"none"}}>
@@ -35,8 +40,11 @@ const SignInCard = (props) =>{
                   <Form.Label>Password</Form.Label>
                   <Form.Control type="password" placeholder="Password" name="password" />
               </Form.Group>
-              <div style={{margin:"30px"}} />
-
+              <div style={{margin:"10px"}} />
+              <Form.Group className="mb-3">
+                  <Form.Label>2FA</Form.Label>
+                  <Form.Control type="text" placeholder="2FA" name="2FA" />
+              </Form.Group>
               <Button style={{width:"100%"}} variant="primary" type="submit">Continue</Button>
           </Form>
           <div style={{margin:"20px"}} />
@@ -48,25 +56,16 @@ const SignInCard = (props) =>{
               </svg>
           </div>
           <div style={{margin:"20px"}} />
-
-          <script src="https://accounts.google.com/gsi/client" async></script>
-          <div id="g_id_onload"
-              data-client_id="YOUR_GOOGLE_CLIENT_ID"
-              data-login_uri="https://your.domain/your_login_endpoint"
-              data-auto_prompt="false">
-          </div>
-          <div class="g_id_signin"
-              data-type="standard"
-              data-size="large"
-              data-theme="outline"
-              data-text="sign_in_with"
-              data-shape="rectangular"
-              data-logo_alignment="left">
-          </div>
+          <GoogleLogin
+            onSuccess={credentialResponse => {
+                console.log(credentialResponse);
+            }}
+            onError={() => {
+                console.log('Login Failed');
+            }}
+            />
           </Card.Body>
-          <Card.Footer>
 
-          </Card.Footer>
   </div> 
   )
 }
