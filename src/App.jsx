@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useContext} from 'react'
 //import * as ReactDOM from 'react-dom/client'
 import 'bootstrap/dist/css/bootstrap.min.css';
 /* eslint-disable react/prop-types */
@@ -13,15 +13,20 @@ import Integrations from "./Components/Integrations"
 import Team from "./Components/Team"
 import Settings from "./Components/Settings"
 import SignInUp from './Components/SignUpFlow/SignInUp';
+import { UserProvider } from './Contexts/UserProvider';
+import UserContext from './Contexts/UserContext';
+import { GoogleOAuthProvider } from '@react-oauth/google';
 
 function App() {
+  //let { isSignedIn } = useContext(UserContext);
 
-  let signedIn = false
   return (
     <React.StrictMode>
-      <BrowserRouter>
+      <GoogleOAuthProvider clientId="159407591313-kank6ogrpnekn2ep35ucmoiaoqjtlohb.apps.googleusercontent.com">
+     <UserProvider>
+     <BrowserRouter>
         <Routes>
-          {signedIn ? <Route exact path="/" element={<Header />}>
+          {false ? <Route exact path="/" element={<Header />}>
               <Route index element={<Home />} />
               <Route path="dashboard/goals" element={<Goals/>}/>
               <Route path="dashboard/tasks" element={<Tasks/>}/>
@@ -36,6 +41,8 @@ function App() {
           }
         </Routes>
       </BrowserRouter>
+     </UserProvider>
+     </GoogleOAuthProvider>
     </React.StrictMode>
   )
 }
